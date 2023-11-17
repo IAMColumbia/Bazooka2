@@ -11,13 +11,16 @@ public class Door : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //checks the doubly linked list room database for whether or not this current node has been beaten
-        roomCleared = GameObject.Find("GameManager").GetComponent<GameManager>().currentNode.isRoomBeaten;
+        //roomCleared = GameObject.Find("GameManager").GetComponent<GameManager>().currentNode.isRoomBeaten;
 
         //if the player collides with the door and the room is cleared, the player may freely travel to the next node
-        if (other.gameObject.tag == "Player" && roomCleared)
+        if (other.gameObject.tag == "Player" )
         {
+            //&& roomCleared
+
+
             //if the door has the "previous" tag, it transitions to the previous node
-            if (this.gameObject.tag == "Previous") { GameObject.Find("GameManager").GetComponent<GameManager>().TravelToPreviousRoom(); }
+            //if (this.gameObject.tag == "Previous") { GameObject.Find("GameManager").GetComponent<GameManager>().TravelToPreviousRoom(); }
 
             //if the door has the "next" tag, it transitions to the next node
             if (this.gameObject.tag == "Next") { GameObject.Find("GameManager").GetComponent<GameManager>().TravelToNextRoom(); }

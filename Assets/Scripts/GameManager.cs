@@ -61,8 +61,10 @@ public class GameManager : MonoBehaviour
 
         enemySpawner = gameObject.GetComponent<EnemySpawnManager>();
 
-        SceneManager.activeSceneChanged += SceneManager_changedRoom;
+        //SceneManager.activeSceneChanged += SceneManager_changedRoom;
 
+
+        
 
         //creates an exporter usable to the game manager
         //txtExporter = new Exporter();
@@ -93,6 +95,7 @@ public class GameManager : MonoBehaviour
     //This UNITY method detects when the scene changes, which helps out with spawning enemies.
     //There was an issue where I could detect when rooms changed but enemies would spawn within the frame
     //and in the 'beaten' room before I switch to the next room.
+    /*
     private void SceneManager_changedRoom(Scene arg0, Scene arg1)   
     {
         //currentNode.spawnedEnemies = false;
@@ -101,7 +104,7 @@ public class GameManager : MonoBehaviour
         //Once we do so we switch it false
             canSpawn= true;
     }
-
+    */
 
     //Event for when player enters the Exit
     private void Exit_OnPlayerExit(object sender, EventArgs e)
@@ -135,12 +138,20 @@ public class GameManager : MonoBehaviour
         currentNode = currentNode.previousNode;
     }
 
+    int currentRoom = 0;
 
     //used by the Door script to travel to next rooms
     public void TravelToNextRoom()
     {
         //move to the next linked node
         currentNode = currentNode.nextNode;
+
+        currentRoom++;
+
+        SceneManager.LoadScene(currentRoom, LoadSceneMode.Single);
+
+        //SceneManager.LoadScene(5, LoadSceneMode.Additive);
+        //SceneManager.UnloadSceneAsync(4);
     }
 
 
