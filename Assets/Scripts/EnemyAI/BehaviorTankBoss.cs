@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class BehaviorTankBoss : EnemyBehavior
     [SerializeField] private GameObject turret;
 
     private Quaternion bodyRotation;
+
+    public static event EventHandler OnTankDefeated;
 
     void Start()
     {        
@@ -81,6 +84,8 @@ public class BehaviorTankBoss : EnemyBehavior
             default:
                 break;
         }
+
+        CheckHealth();
     }
 
     protected override void HandleEnemyAggro()
@@ -173,6 +178,12 @@ public class BehaviorTankBoss : EnemyBehavior
         var light = currentEntity.AddComponent<Light>();
         light.color = Color.red;
 
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        OnTankDefeated.Invoke(this, EventArgs.Empty);
     }
 
 

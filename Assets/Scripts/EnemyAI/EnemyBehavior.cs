@@ -199,6 +199,11 @@ public class EnemyBehavior : MonoBehaviour, IDamagable
 
 
         //kill if below 0 hp
+        CheckHealth();
+    }
+
+    protected void CheckHealth()
+    {
         if (health <= 0)
         {
             if (!CalledDie)
@@ -277,7 +282,8 @@ public class EnemyBehavior : MonoBehaviour, IDamagable
         //instantiates the projectile prefab
         projectilePrefab = Resources.Load(currentEnemyWeapon.ProjectileName);
 
-        currentEntity = Instantiate(projectilePrefab as GameObject, weaponProjectileSpawnNode.transform.position, Quaternion.LookRotation(Vector3.up, gameObject.transform.forward));
+        currentEntity = Instantiate(projectilePrefab as GameObject, weaponProjectileSpawnNode.transform.position, Quaternion.LookRotation(Vector3.up, enemyLookDirection));
+        //currentEntity = Instantiate(projectilePrefab as GameObject, weaponProjectileSpawnNode.transform.position, Quaternion.LookRotation(Vector3.up, gameObject.transform.forward));
         currentEntity.GetComponent<Projectile>().currentWeaponInfo = currentEnemyWeapon;
 
 
@@ -303,7 +309,7 @@ public class EnemyBehavior : MonoBehaviour, IDamagable
     }
 
     //called when enemuy hp is at or below 0
-    public void Die()
+    public virtual void Die()
     {
         OnDeath?.Invoke(this, EventArgs.Empty); //This is for the enemy death particles to activate
 

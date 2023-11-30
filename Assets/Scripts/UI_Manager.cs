@@ -86,6 +86,7 @@ public class UI_Manager : MonoBehaviour
 
         PlayerProjectile.OnExplosion += PlayerManager_OnPlayerProjectileAmountChange;
 
+        BehaviorTankBoss.OnTankDefeated += BossDefeated;
         
 
 
@@ -107,9 +108,7 @@ public class UI_Manager : MonoBehaviour
 
     }
 
-
-
-
+   
 
     bool atStart = true;
 
@@ -202,7 +201,10 @@ public class UI_Manager : MonoBehaviour
         Activate.SetActive(false);
     }
 
-
+    private void BossDefeated(object sender, System.EventArgs e)
+    {
+        UI_state = CanvasState.WIN;
+    }
     private void GameManager_OnEvacStart(object sender, System.EventArgs e)
     {
         UI_state= CanvasState.EVAC;

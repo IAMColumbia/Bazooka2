@@ -2169,7 +2169,7 @@ GameObject:
   - component: {fileID: 1189808410}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Knight
+  m_TagString: TankTan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4268,7 +4268,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.21666665
+  m_VoxelSize: 0.27666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 2f81902697b4a354483ee72a70bd44a8, type: 2}
   m_BuildHeightMesh: 0
@@ -4499,6 +4499,75 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &1859004765
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 415729521473299172, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: m_Name
+      value: ExplosiveBarrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181088096042595386, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: Damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181088096042595386, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: ExplosionRadius
+      value: 5.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538967351816389198, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725583350617946580, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.768524
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725583350617946580, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00010108948
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725583350617946580, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.342563
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725583350617946580, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725583350617946580, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725583350617946580, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725583350617946580, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725583350617946580, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725583350617946580, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725583350617946580, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 19b9e984d88917946964b7c12b8ed223, type: 3}
 --- !u!1 &1914858785
 GameObject:
   m_ObjectHideFlags: 0
@@ -5023,3 +5092,4 @@ SceneRoots:
   - {fileID: 1061985945}
   - {fileID: 1792479370}
   - {fileID: 1636468921}
+  - {fileID: 1859004765}

@@ -52,10 +52,14 @@ public class GameManager : MonoBehaviour
 
     private GameState state;
 
+    private bool NeedSceneChange;
+
 
     private void Awake()
     {
         //state = GameState.Playing;
+
+        NeedSceneChange= false;
 
         txtExporter = new Exporter();
 
@@ -151,13 +155,18 @@ public class GameManager : MonoBehaviour
     //used by the Door script to travel to next rooms
     public void TravelToNextRoom()
     {
-        //move to the next linked node
+        //move to the next linked node 
  
 
         currentRoom++;
         SceneManager.LoadScene(currentRoom, LoadSceneMode.Single);
         currentScene = SceneManager.GetSceneAt(currentRoom);
-        SceneManager.SetActiveScene(currentScene);
+
+        //We use this bool to use in Update. The scene actually loads on the 
+        //NEXT frame update. We can't set active scene here. This bool allows
+        //The scene change when active, then set to false when done.
+        NeedSceneChange = true;
+
         canSpawn = true;
         currentNode = currentNode.nextNode;
 
@@ -168,6 +177,12 @@ public class GameManager : MonoBehaviour
     bool didOnce = false;
     private void Update()
     {
+        if (NeedSceneChange)
+        {
+            SceneManager.SetActiveScene(currentScene);
+            NeedSceneChange = false;
+        }
+
         //checks if the this node of the tail node/final room, then checks if the final room has been beaten
         //if(currentNode.nextNode == null && currentNode.isRoomBeaten && !didOnce)
         //{
