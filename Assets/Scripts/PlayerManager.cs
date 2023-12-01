@@ -86,6 +86,12 @@ public class PlayerManager : MonoBehaviour
         CameraSwitcher.OnCameraEnable += cameraSwitched;
         CameraSwitcher.OnCameraDisable += cameraReturned;
 
+        GameManager.OnPlayerWin += GameManager_OnPlayerWin;
+    }
+
+    private void GameManager_OnPlayerWin(object sender, EventArgs e)
+    {
+        _playerController.PlayerActions.Disable();
     }
 
     private void cameraReturned(object sender, EventArgs e)

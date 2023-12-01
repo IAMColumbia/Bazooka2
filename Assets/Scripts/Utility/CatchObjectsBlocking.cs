@@ -58,7 +58,16 @@ public class CatchObjectsBlocking : MonoBehaviour
     {
         foreach (FadeObject item in wallsFaded)
         {
-            item.FadeThis();
+            try
+            {
+                item.FadeThis();
+            }
+            catch 
+            {
+
+                
+            }
+            
         }
     }
 

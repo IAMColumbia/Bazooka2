@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Reporting;
+//using UnityEditor.Build.Reporting;
 using UnityEngine;
 
 public class InitializeGame : MonoBehaviour
@@ -22,7 +22,8 @@ public class InitializeGame : MonoBehaviour
     private void Awake()
     {
         
-        if(GameObject.Find("GameManager") == null) 
+
+        if (GameObject.Find("GameManager") == null) 
         {
             //the game manager
             dontDestroyOnLoadGameObjects.Add(SetGameObjectName(Instantiate(LoadPrefabFromString("GameManager")), "GameManager"));
@@ -45,6 +46,10 @@ public class InitializeGame : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        Screen.SetResolution(1920, 1080, true);
+    }
     GameObject LoadPrefabFromString(string prefabName)
     {        
         return (Resources.Load(prefabName) as GameObject);

@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     private bool NeedSceneChange;
 
-
+    
     private void Awake()
     {
         //state = GameState.Playing;
@@ -85,10 +85,20 @@ public class GameManager : MonoBehaviour
 
         evacTimer = new Timer(40.0f);
 
+        BehaviorTankBoss.OnTankDefeated += BossDefeated;
+
         //prevent the game manager game object from being destroyed between scenes
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(exit);
 
+
+    }
+
+    private void BossDefeated(object sender, EventArgs e)
+    {
+        //When this happens, Player Wins
+
+        OnPlayerWin?.Invoke(this, EventArgs.Empty);
 
     }
 
@@ -97,7 +107,7 @@ public class GameManager : MonoBehaviour
     //This UNITY method detects when the scene changes, which helps out with spawning enemies.
     //There was an issue where I could detect when rooms changed but enemies would spawn within the frame
     //and in the 'beaten' room before I switch to the next room.
-    
+
     private void SceneManager_changedRoom(Scene arg0, Scene arg1)   
     {
         //currentNode.spawnedEnemies = false;
